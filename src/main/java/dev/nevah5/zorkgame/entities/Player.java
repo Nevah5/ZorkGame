@@ -5,5 +5,11 @@ import lombok.Getter;
 
 public class Player {
     @Getter
+    private final String playerName;
+    @Getter
     private final PlayerLocation playerLocation = new PlayerLocation();
+
+    public Player(String playerName){
+        this.playerName = playerName;
+    }
 }
