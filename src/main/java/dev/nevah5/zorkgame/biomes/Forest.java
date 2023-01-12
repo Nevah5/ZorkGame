@@ -1,4 +1,4 @@
 package dev.nevah5.zorkgame.biomes;
 
-public class Forest {
+public class Forest extends Biome{
 }
