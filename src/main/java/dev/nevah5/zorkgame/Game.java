@@ -25,12 +25,12 @@ public class Game {
         clearConsole();
 
         System.out.println("Welcome Stranger!");
-        System.out.println("To know you a little bit better, I would like to know your name.\n");
-        String name = scanner.nextLine();
+        System.out.println("To know you a little bit better, I would like to know your name:");
+        String name = scanner.next();
 
         while(name.equals("")){
-            System.out.println("This name is invalid. Please try again.");
-            name = scanner.nextLine();
+            System.out.println("This name is invalid. Please try again:");
+            name = scanner.next();
         }
 
         Player player = new Player(name);
@@ -42,10 +42,24 @@ public class Game {
 
         clearConsole();
 
-        System.out.println(String.format("Welcome %s to the world of Zork!", name));
+        System.out.printf("Welcome '%s' to the world of Zork!%n", name);
+        TimeUnit.SECONDS.sleep(3);
+        System.out.println("Sadly, no one has made a map yet, maybe you can bring one back after your adventure.");
+        TimeUnit.SECONDS.sleep(1);
+        System.out.printf("Now, I wish you good luck. Good bye, %s%n", name);
+        TimeUnit.SECONDS.sleep(5);
+        System.out.println("\n* you leave without looking back, with much confidence in your skills");
+        TimeUnit.SECONDS.sleep(2);
+        System.out.println("Tip: Type 'help' to find a list of commands available.");
+        System.out.print("Loading.");
+        for (int i = 0; i < 4; i++){
+            TimeUnit.SECONDS.sleep(1);
+            System.out.print(".");
+        }
 
         Map map = new Map(player.getPlayerLocation());
         map.printMap();
+
         scanner.close();
     }
 
