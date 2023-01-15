@@ -52,9 +52,13 @@ public class Game {
         TimeUnit.SECONDS.sleep(2);
         System.out.println("Tip: Type 'help' to find a list of commands available.");
         System.out.print("Loading.");
-        for (int i = 0; i < 4; i++){
+        for (int i = 0; i < 5; i++){
             TimeUnit.SECONDS.sleep(1);
             System.out.print(".");
+            if(i == 3) for(int j = 0; j < 3; j++){
+                TimeUnit.MILLISECONDS.sleep(200);
+                System.out.print(".");
+            }
         }
 
         Map map = new Map(player.getPlayerLocation());
