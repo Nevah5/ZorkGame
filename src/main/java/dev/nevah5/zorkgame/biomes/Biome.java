@@ -53,4 +53,8 @@ public class Biome {
             System.out.print(this.color+"███████");
         }
     }
+
+    public void printBiomeName(){
+        System.out.print("Unnamed");
+    }
 }

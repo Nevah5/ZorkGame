@@ -51,6 +51,16 @@ public class Map {
                 }
             }
         }
+        new Desert().printBiomeName();
+        System.out.print(" ");
+        new House().printBiomeName();
+        System.out.print(" ");
+        new Forest().printBiomeName();
+        System.out.print(" ");
+        new Jungle().printBiomeName();
+        System.out.print(" ");
+        new Cave().printBiomeName();
+        System.out.print(" ");
     }
 
     public void updatePosition(){

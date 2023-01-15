@@ -6,4 +6,9 @@ public class Desert extends Biome{
     public Desert(){
         super(Color.YELLOW);
     }
+
+    @Override
+    public void printBiomeName(){
+        System.out.print(this.getColor()+"Desert");
+    }
 }

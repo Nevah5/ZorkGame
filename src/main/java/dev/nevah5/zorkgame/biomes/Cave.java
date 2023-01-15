@@ -6,4 +6,9 @@ public class Cave extends Biome{
     public Cave(){
         super(Color.BLACK);
     }
+
+    @Override
+    public void printBiomeName(){
+        System.out.print(this.getColor()+"Cave");
+    }
 }
