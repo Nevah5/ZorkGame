@@ -65,6 +65,12 @@ public class Game {
         map.updatePosition();
         map.printMap();
 
+        String command;
+        do {
+            System.out.print("\n\u001B[0m>>> ");
+            command = scanner.nextLine();
+        } while(!command.equals(""));
+
         scanner.close();
     }
 
