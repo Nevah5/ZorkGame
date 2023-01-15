@@ -62,6 +62,7 @@ public class Game {
         }
 
         Map map = new Map(player.getPlayerLocation());
+        map.updatePosition();
         map.printMap();
 
         scanner.close();
