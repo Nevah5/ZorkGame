@@ -61,6 +61,7 @@ public class Map {
         System.out.print(" ");
         new Cave().printBiomeName();
         System.out.print(" ");
+        System.out.print("\n\n");
     }
 
     public void updatePosition(){

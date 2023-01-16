@@ -41,14 +41,14 @@ public class Biome {
 
     public void printBiomeTileLine(){
         if(!this.hasVisited) {
-            System.out.print("\u001B[0m███████");
+            System.out.print("\u001B[35m███████");
         }else {
             System.out.print(this.color+"███████");
         }
     }
     public void printBiomeTileLineMiddle(){
         if(!this.hasVisited) {
-            System.out.print("\u001B[0m███?███");
+            System.out.print("\u001B[35m███?███");
         }else {
             System.out.print(this.color+"███████");
         }
