@@ -1,17 +1,21 @@
 package dev.nevah5.zorkgame;
 
 import dev.nevah5.zorkgame.entities.Player;
+import dev.nevah5.zorkgame.exceptions.CommandNotFoundException;
+import dev.nevah5.zorkgame.tools.CommandHandler;
 
 import java.io.IOException;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 public class Game {
-    public static void main(String[] args) throws InterruptedException {
+    private Map map;
+    private Player player;
+    public Game() throws InterruptedException {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("""
-                WELCOME TO
+                \u001B[35mWELCOME TO
                 ███████╗░█████╗░██████╗░██╗░░██╗
                 ╚════██║██╔══██╗██╔══██╗██║░██╔╝
                 ░░███╔═╝██║░░██║██████╔╝█████═╝░
@@ -22,36 +26,11 @@ public class Game {
                 """);
 
         TimeUnit.SECONDS.sleep(2);
-        clearConsole();
 
-        System.out.println("Welcome Stranger!");
-        System.out.println("To know you a little bit better, I would like to know your name:");
-        String name = scanner.next();
+        this.player = new Player("Player");
 
-        while(name.equals("")){
-            System.out.println("This name is invalid. Please try again:");
-            name = scanner.next();
-        }
-
-        Player player = new Player(name);
-
-        TimeUnit.SECONDS.sleep(1);
-
-        System.out.println("Hm, what a nice name.");
-        TimeUnit.SECONDS.sleep(2);
-
-        clearConsole();
-
-        System.out.printf("Welcome '%s' to the world of Zork!%n", name);
-        TimeUnit.SECONDS.sleep(3);
-        System.out.println("Sadly, no one has made a map yet, maybe you can bring one back after your adventure.");
-        TimeUnit.SECONDS.sleep(1);
-        System.out.printf("Now, I wish you good luck. Good bye, %s%n", name);
-        TimeUnit.SECONDS.sleep(5);
-        System.out.println("\n* you leave without looking back, with much confidence in your skills");
-        TimeUnit.SECONDS.sleep(2);
-        System.out.println("Tip: Type 'help' to find a list of commands available.");
-        System.out.print("Loading.");
+        System.out.println("\u001B[35mTip: Type 'help' to find a list of commands available.");
+        System.out.print("\u001B[35mLoading.");
         for (int i = 0; i < 5; i++){
             TimeUnit.SECONDS.sleep(1);
             System.out.print(".");
@@ -61,15 +40,22 @@ public class Game {
             }
         }
 
-        Map map = new Map(player.getPlayerLocation());
-        map.updatePosition();
-        map.printMap();
+        this.map = new Map(player.getPlayerLocation());
 
-        String command;
+        System.out.print("\n\n");
+
+        CommandHandler commandHandler = new CommandHandler(this);
         do {
-            System.out.print("\n\u001B[0m>>> ");
-            command = scanner.nextLine();
-        } while(!command.equals(""));
+            try{
+                System.out.print("\u001B[35m>>> ");
+                String command = scanner.next();
+                commandHandler.runCommand(command);
+            }catch (Throwable throwable){
+                System.out.println("\u001B[31m"+throwable.getMessage());
+            }
+        } while(commandHandler.isGameRunning());
+
+        System.out.println("\u001B[35mThanks for playing!");
 
         scanner.close();
     }
