@@ -37,31 +37,19 @@ public class Map {
     }
 
     public void printMap(){
-        System.out.printf("You are currently at: %s %s%n", playerLocation.getX(),
-                playerLocation.getZ());
+        // TODO: print Biome currently in
         for(int z = 1; z <= 5; z++){ //multiply is for printing 3 lines per biome
-            for(int lvl = 0; lvl < 3; lvl++){
-                for(int x = 1; x <= 8; x++){
-                    int i = (x-1)*(z-1)+x-1;
-                    if(x == 1) i = 8*(z-1)+x-1;
-                    if(lvl == 0) biomes.get(i).printBiomeTileLine();
-                    if(lvl == 1) biomes.get(i).printBiomeTileLineMiddle();
-                    if(lvl == 2) biomes.get(i).printBiomeTileLine();
-                    if(x == 8) System.out.print("\n");
-                }
+            for(int x = 1; x <= 8; x++){
+                int i = (x-1)*(z-1)+x-1;
+                int playerPos = (playerLocation.getX() - 1)*(playerLocation.getZ()-1)+playerLocation.getX()-1;
+                if(x == 1) i = 8*(z-1)+x-1;
+                // TODO: print X where player is at
+                biomes.get(i).printIcon();
+                if(x == 8) System.out.print("\n");
             }
         }
-        new Desert().printBiomeName();
-        System.out.print(" ");
-        new House().printBiomeName();
-        System.out.print(" ");
-        new Forest().printBiomeName();
-        System.out.print(" ");
-        new Jungle().printBiomeName();
-        System.out.print(" ");
-        new Cave().printBiomeName();
-        System.out.print(" ");
-        System.out.print("\n\n");
+        System.out.printf("%s%n%s%n%s%n%s%n%s%n", new Cave().getBiomeDesc(), new Desert().getBiomeDesc(),
+                new Forest().getBiomeDesc(), new House().getBiomeDesc(), new Jungle().getBiomeDesc());
     }
 
     public void updatePosition(){
