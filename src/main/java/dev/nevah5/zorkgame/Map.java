@@ -11,6 +11,7 @@ import java.util.Random;
  * Creates a new map for the player.
  * The map is built on a 8x5 grid, so
  * 40 tiles.
+ * @author Nevah5
  */
 public class Map {
     PlayerLocation playerLocation;
@@ -37,11 +38,12 @@ public class Map {
     }
 
     public void printMap(){
-        // TODO: print Biome currently in
+        int playerPos = (playerLocation.getX() - 1)*(playerLocation.getZ()-1)+playerLocation.getX()-1;
+        System.out.printf("You are currently in: %s%n", biomes.get(playerPos).getBiomeDesc());
+
         for(int z = 1; z <= 5; z++){ //multiply is for printing 3 lines per biome
             for(int x = 1; x <= 8; x++){
                 int i = (x-1)*(z-1)+x-1;
-                int playerPos = (playerLocation.getX() - 1)*(playerLocation.getZ()-1)+playerLocation.getX()-1;
                 if(x == 1) i = 8*(z-1)+x-1;
                 // TODO: print X where player is at
                 biomes.get(i).printIcon();
