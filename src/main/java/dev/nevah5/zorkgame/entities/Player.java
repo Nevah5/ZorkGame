@@ -42,9 +42,7 @@ public class Player {
             }
             playerLocation.setX(playerLocation.getX()-1);
         }
+        map.getCurrentBiome().setHasVisited(true);
         System.out.printf("%s%n", map.getCurrentBiome().getEnterBiomeStory());
-        System.out.println("X: "+playerLocation.getX());
-        System.out.println("Z: "+playerLocation.getZ());
-        System.out.println(playerLocation.getListIndex());
     }
 }
