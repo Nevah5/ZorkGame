@@ -1,6 +1,7 @@
 package dev.nevah5.zorkgame.entities;
 
 import dev.nevah5.zorkgame.Map;
+import dev.nevah5.zorkgame.biomes.Biome;
 import dev.nevah5.zorkgame.enums.Direction;
 import dev.nevah5.zorkgame.exceptions.InvalidPlayerMoveException;
 import dev.nevah5.zorkgame.tools.PlayerLocation;
@@ -42,7 +43,8 @@ public class Player {
             }
             playerLocation.setX(playerLocation.getX()-1);
         }
-        map.getCurrentBiome().setHasVisited(true);
-        System.out.printf("%s%n", map.getCurrentBiome().getEnterBiomeStory());
+        Biome currentBiome = map.getCurrentBiome();
+        if(!currentBiome.getHasVisited()) System.out.printf("%s%n", map.getCurrentBiome().getEnterBiomeStory());
+        currentBiome.setHasVisited(true);
     }
 }
