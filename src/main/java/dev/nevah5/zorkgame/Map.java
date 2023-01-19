@@ -45,8 +45,11 @@ public class Map {
             for(int x = 1; x <= 8; x++){
                 int i = (x-1)*(z-1)+x-1;
                 if(x == 1) i = 8*(z-1)+x-1;
-                // TODO: print X where player is at
-                biomes.get(i).printIcon();
+                if(i == playerPos) {
+                    System.out.print("❌");
+                } else{
+                    biomes.get(i).printIcon();
+                }
                 if(x == 8) System.out.print("\n");
             }
         }
