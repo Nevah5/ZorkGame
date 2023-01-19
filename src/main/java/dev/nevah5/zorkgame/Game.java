@@ -27,21 +27,15 @@ public class Game {
                 ╚══════╝░╚════╝░╚═╝░░╚═╝╚═╝░░╚═╝
                                  Made by @Nevah5
                 """);
-
-        TimeUnit.SECONDS.sleep(2);
-
-        this.player = new Player("Player");
-
         System.out.println("\u001B[35mTip: Type 'help' to find a list of commands available.");
         System.out.print("\u001B[35mLoading.");
-        for (int i = 0; i < 5; i++){
+        TimeUnit.SECONDS.sleep(1);
+        for(int i = 0; i < 3; i++){
             TimeUnit.SECONDS.sleep(1);
             System.out.print(".");
-            if(i == 3) for(int j = 0; j < 3; j++){
-                TimeUnit.MILLISECONDS.sleep(200);
-                System.out.print(".");
-            }
         }
+
+        this.player = new Player("Player");
 
         this.map = new Map(player.getPlayerLocation());
 
@@ -51,7 +45,7 @@ public class Game {
         do {
             try{
                 System.out.print("\u001B[35m>>> ");
-                String command = scanner.next();
+                String command = scanner.nextLine();
                 commandHandler.runCommand(command);
             }catch (Throwable throwable){
                 System.out.println("\u001B[31m"+throwable.getMessage());
