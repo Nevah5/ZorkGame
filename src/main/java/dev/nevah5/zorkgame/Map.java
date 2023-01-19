@@ -38,7 +38,7 @@ public class Map {
     }
 
     public void printMap(){
-        int playerPos = (playerLocation.getX() - 1)*(playerLocation.getZ()-1)+playerLocation.getX()-1;
+        int playerPos = playerLocation.getListIndex();
         System.out.printf("You are currently in: %s%n", biomes.get(playerPos).getBiomeDesc());
 
         for(int z = 1; z <= 5; z++){ //multiply is for printing 3 lines per biome
@@ -58,8 +58,6 @@ public class Map {
     }
 
     public void updatePosition(){
-        int x = this.playerLocation.getX();
-        int z = this.playerLocation.getZ();
-        this.biomes.get(0).setHasVisited(true);
+        this.biomes.get(playerLocation.getListIndex()).setHasVisited(true);
     }
 }
