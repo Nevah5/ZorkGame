@@ -31,4 +31,6 @@ public class Biome {
     public String getBiomeDesc(){
         return "❓ Unnamed";
     }
+
+    public String getEnterBiomeStory(){ return "You entered something unknown."; }
 }

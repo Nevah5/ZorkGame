@@ -9,4 +9,7 @@ public class House extends Biome{
     public String getBiomeDesc(){
         return "🏠 House";
     }
+
+    @Override
+    public String getEnterBiomeStory(){ return "Oh, what is this? You found a lonely house."; }
 }

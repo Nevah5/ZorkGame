@@ -9,4 +9,8 @@ public class Forest extends Biome{
     public String getBiomeDesc(){
         return "🌳 Forest";
     }
+
+    @Override
+    public String getEnterBiomeStory(){ return "Tall trees shoot up in the sky. A Forest. You hear birds in the " +
+            "distance."; }
 }
