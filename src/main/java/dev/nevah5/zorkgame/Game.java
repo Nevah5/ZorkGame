@@ -1,11 +1,10 @@
 package dev.nevah5.zorkgame;
 
 import dev.nevah5.zorkgame.entities.Player;
-import dev.nevah5.zorkgame.exceptions.CommandNotFoundException;
+import dev.nevah5.zorkgame.misc.Map;
 import dev.nevah5.zorkgame.tools.CommandHandler;
 import lombok.Getter;
 
-import java.io.IOException;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 

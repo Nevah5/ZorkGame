@@ -1,6 +1,6 @@
 package dev.nevah5.zorkgame.commands;
 
-import dev.nevah5.zorkgame.Map;
+import dev.nevah5.zorkgame.misc.Map;
 import dev.nevah5.zorkgame.entities.Player;
 import dev.nevah5.zorkgame.enums.Direction;
 import dev.nevah5.zorkgame.exceptions.InvalidCommandSyntaxException;

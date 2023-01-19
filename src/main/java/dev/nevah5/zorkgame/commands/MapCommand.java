@@ -1,6 +1,6 @@
 package dev.nevah5.zorkgame.commands;
 
-import dev.nevah5.zorkgame.Map;
+import dev.nevah5.zorkgame.misc.Map;
 
 public class MapCommand {
     public MapCommand(Map map){
