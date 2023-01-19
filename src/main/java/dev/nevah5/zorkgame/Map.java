@@ -15,6 +15,10 @@ import java.util.Random;
  */
 public class Map {
     PlayerLocation playerLocation;
+    /**
+     * This stores all the biomes. It's the map.
+     * Index goes up to 39.
+     */
     List<Biome> biomes = new ArrayList<>();
     public Map(PlayerLocation playerLocation){
         this.playerLocation = playerLocation;
@@ -43,8 +47,7 @@ public class Map {
 
         for(int z = 1; z <= 5; z++){ //multiply is for printing 3 lines per biome
             for(int x = 1; x <= 8; x++){
-                int i = (x-1)*(z-1)+x-1;
-                if(x == 1) i = 8*(z-1)+x-1;
+                int i = 8*(z-1)+x-1;
                 if(i == playerPos) {
                     System.out.print("❌");
                 } else{

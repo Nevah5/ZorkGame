@@ -4,14 +4,22 @@ import lombok.Getter;
 import lombok.Setter;
 
 public class PlayerLocation {
+    /**
+     * The player's x location.
+     * Starts at 0, is not higher than 7.
+     */
     @Getter
     @Setter
     private int x;
+    /**
+     * The player's z location.
+     * Starts at 0, is not higher than 4.
+     */
     @Getter
     @Setter
     private int z;
 
     public int getListIndex(){
-        return (x - 1)*(z-1)+x-1;
+        return 8*z+x;
     }
 }

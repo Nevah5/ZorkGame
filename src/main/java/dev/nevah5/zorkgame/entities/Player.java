@@ -25,26 +25,26 @@ public class Player {
             if(playerLocation.getZ() == 0){
                 throw new InvalidPlayerMoveException();
             }
-            playerLocation.setZ(playerLocation.getZ() + 1);
-            System.out.printf("%s%n", map.getCurrentBiome().getEnterBiomeStory());
+            playerLocation.setZ(playerLocation.getZ()-1);
         } else if(direction == Direction.EAST){
             if(playerLocation.getX() == 7){
                 throw new InvalidPlayerMoveException();
             }
             playerLocation.setX(playerLocation.getX()+1);
-            System.out.printf("%s%n", map.getCurrentBiome().getEnterBiomeStory());
         } else if(direction == Direction.SOUTH){
             if(playerLocation.getZ() == 4){
                 throw new InvalidPlayerMoveException();
             }
-            playerLocation.setZ(playerLocation.getZ()-1);
-            System.out.printf("%s%n", map.getCurrentBiome().getEnterBiomeStory());
+            playerLocation.setZ(playerLocation.getZ()+1);
         } else if(direction == Direction.WEST){
             if(playerLocation.getX() == 0){
                 throw new InvalidPlayerMoveException();
             }
             playerLocation.setX(playerLocation.getX()-1);
-            System.out.printf("%s%n", map.getCurrentBiome().getEnterBiomeStory());
         }
+        System.out.printf("%s%n", map.getCurrentBiome().getEnterBiomeStory());
+        System.out.println("X: "+playerLocation.getX());
+        System.out.println("Z: "+playerLocation.getZ());
+        System.out.println(playerLocation.getListIndex());
     }
 }
