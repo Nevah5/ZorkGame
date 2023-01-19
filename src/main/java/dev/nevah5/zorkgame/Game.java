@@ -12,6 +12,7 @@ import java.util.concurrent.TimeUnit;
 public class Game {
     @Getter
     private Map map;
+    @Getter
     private Player player;
     public Game() throws InterruptedException {
         Scanner scanner = new Scanner(System.in);

@@ -60,4 +60,8 @@ public class Map {
     public void updatePosition(){
         this.biomes.get(playerLocation.getListIndex()).setHasVisited(true);
     }
+
+    public Biome getCurrentBiome(){
+        return this.biomes.get(playerLocation.getListIndex());
+    }
 }
