@@ -7,6 +7,11 @@ import dev.nevah5.zorkgame.exceptions.InvalidPlayerMoveException;
 import dev.nevah5.zorkgame.tools.PlayerLocation;
 import lombok.Getter;
 
+/**
+ * The player class. Stores the name of the player
+ * and the location.
+ * @author Nevah5
+ */
 public class Player {
     @Getter
     private final String playerName;

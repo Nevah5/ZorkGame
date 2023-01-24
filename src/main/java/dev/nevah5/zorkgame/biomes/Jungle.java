@@ -1,5 +1,9 @@
 package dev.nevah5.zorkgame.biomes;
 
+/**
+ * @author Nevah5
+ * Jungle biome.
+ */
 public class Jungle extends Biome{
     public Jungle(){
         super("🦟");

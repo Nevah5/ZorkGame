@@ -5,11 +5,12 @@ import dev.nevah5.zorkgame.commands.HelpCommand;
 import dev.nevah5.zorkgame.commands.MapCommand;
 import dev.nevah5.zorkgame.commands.MoveCommand;
 import dev.nevah5.zorkgame.exceptions.CommandNotFoundException;
-import dev.nevah5.zorkgame.exceptions.InvalidCommandSyntaxException;
 import lombok.Getter;
 
-import java.util.Scanner;
-
+/**
+ * Handles commands.
+ * @author Nevah5
+ */
 public class CommandHandler {
     private Game game;
     @Getter
@@ -18,6 +19,11 @@ public class CommandHandler {
         this.game = game;
     }
 
+    /**
+     * Runs a command, else throws an exception
+     * @param command the command
+     * @throws Throwable throws different exceptions
+     */
     public void runCommand(String command) throws Throwable {
         switch (command){
             case "help", "h", "?" -> new HelpCommand();

@@ -1,6 +1,14 @@
 package dev.nevah5.zorkgame.commands;
 
+/**
+ * This is the class for the help command.
+ * @author Nevah5
+ */
 public class HelpCommand {
+    /**
+     * Directly prints a list of all available
+     * commands into the console.
+     */
     public HelpCommand(){
         System.out.println("- Mᴏᴠᴇᴍᴇɴᴛ -");
         System.out.println("map - prints out the map and your location");

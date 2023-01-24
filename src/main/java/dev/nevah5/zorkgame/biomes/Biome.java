@@ -7,6 +7,11 @@ import lombok.Setter;
 
 import java.util.List;
 
+/**
+ * Biome class. It stores the monsters, items, emoji icon and
+ * if the player has visited the biome yet.
+ * @author Nevah5
+ */
 public class Biome {
     private List<Monster> monsters;
     private List<Item> items;
@@ -20,6 +25,11 @@ public class Biome {
         this.icon = icon;
     }
 
+    /**
+     * Prints the icon of the biome.
+     * if the biome is still unvisited,
+     * it prints a question mark emoji.
+     */
     public void printIcon(){
         if(!this.hasVisited) {
             System.out.print("❓");
@@ -28,9 +38,19 @@ public class Biome {
         }
     }
 
+    /**
+     * This function should be overwritten
+     * by the "child" biome classes.
+     * @return Biome icon with the name
+     */
     public String getBiomeDesc(){
         return "❓ Unnamed";
     }
 
+    /**
+     * Gives back a small story that should be displayed
+     * when the player enters the biome for the first time.
+     * @return Story when the player enters a biome for the first time
+     */
     public String getEnterBiomeStory(){ return "You entered something unknown."; }
 }

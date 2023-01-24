@@ -7,8 +7,17 @@ import dev.nevah5.zorkgame.exceptions.InvalidCommandSyntaxException;
 import dev.nevah5.zorkgame.exceptions.InvalidPlayerMoveException;
 
 import java.util.Scanner;
-
+/**
+ * This is the class for the move command.
+ * @author Nevah5
+ */
 public class MoveCommand {
+    /**
+     * Gives the user a promt to where he wants
+     * to move. Then moves accordingly.
+     * @param player the player
+     * @param map the map from the game
+     */
     public MoveCommand(Player player, Map map){
         Scanner scanner = new Scanner(System.in);
         System.out.println("In which direction do you want to move?");
@@ -32,6 +41,12 @@ public class MoveCommand {
         }
     }
 
+    /**
+     * Gives the user a promt to where he wants
+     * to move. Then moves accordingly.
+     * @param player the player
+     * @param map the map from the game
+     */
     public MoveCommand(Player player, Map map, String param1) {
         try{
             switch (param1){

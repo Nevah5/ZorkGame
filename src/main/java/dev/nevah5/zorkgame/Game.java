@@ -8,6 +8,15 @@ import lombok.Getter;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * ███████╗░█████╗░██████╗░██╗░░██╗
+ * ╚════██║██╔══██╗██╔══██╗██║░██╔╝
+ * ░░███╔═╝██║░░██║██████╔╝█████═╝░
+ * ██╔══╝░░██║░░██║██╔══██╗██╔═██╗░
+ * ███████╗╚█████╔╝██║░░██║██║░╚██╗
+ * ╚══════╝░╚════╝░╚═╝░░╚═╝╚═╝░░╚═╝
+ * @author Nevah5
+ */
 public class Game {
     @Getter
     private Map map;
@@ -54,11 +63,5 @@ public class Game {
         System.out.println("\u001B[35mThanks for playing!");
 
         scanner.close();
-    }
-
-    private static void clearConsole(){
-        for(int i = 0; i < 20; i++){
-            System.out.println("\n");
-        }
     }
 }
