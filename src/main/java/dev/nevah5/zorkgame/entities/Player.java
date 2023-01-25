@@ -4,6 +4,7 @@ import dev.nevah5.zorkgame.misc.Map;
 import dev.nevah5.zorkgame.biomes.Biome;
 import dev.nevah5.zorkgame.enums.Direction;
 import dev.nevah5.zorkgame.exceptions.InvalidPlayerMoveException;
+import dev.nevah5.zorkgame.misc.PlayerInventory;
 import dev.nevah5.zorkgame.tools.PlayerLocation;
 import lombok.Getter;
 
@@ -17,6 +18,8 @@ public class Player {
     private final String playerName;
     @Getter
     private final PlayerLocation playerLocation = new PlayerLocation();
+    @Getter
+    private final PlayerInventory playerInventory = new PlayerInventory();
 
     public Player(String playerName){
         this.playerName = playerName;

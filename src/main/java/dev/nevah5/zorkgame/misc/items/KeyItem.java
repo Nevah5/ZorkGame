@@ -4,7 +4,7 @@ import dev.nevah5.zorkgame.misc.Item;
 
 public class KeyItem extends Item {
     public KeyItem(){
-        super(1, "Key", 0.02);
+        super("Key", 0.02);
     }
 
     @Override

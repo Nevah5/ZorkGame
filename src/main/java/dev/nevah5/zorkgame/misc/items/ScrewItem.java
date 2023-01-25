@@ -4,7 +4,7 @@ import dev.nevah5.zorkgame.misc.Item;
 
 public class ScrewItem extends Item {
     public ScrewItem(){
-        super(20, "Screw", 0.05);
+        super("Screw", 0.05);
     }
 
     @Override

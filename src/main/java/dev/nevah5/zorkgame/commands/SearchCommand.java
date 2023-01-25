@@ -27,7 +27,10 @@ public class SearchCommand {
         };
 
         Item itemFound = items.get(items.size() -1);
+        items.remove(items.size() - 1);
         System.out.printf("It looks like you found '%s'!%n", itemFound.getName());
         itemFound.inspect();
+        System.out.println("You picked up the item and it has been added to your inventory!");
+        player.getPlayerInventory().pickup(itemFound);
     }
 }

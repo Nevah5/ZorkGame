@@ -7,10 +7,10 @@ import lombok.Getter;
  * @author Nevah5
  */
 public class Item {
-    private int maxStackSize;
     @Getter
-    private String name;
-    private double weightInKg;
+    private final String name;
+    @Getter
+    private final double weightInKg;
 
     /**
      * Creates a new item.
@@ -18,8 +18,7 @@ public class Item {
      * @param name the name of the item
      * @param weightInKg the weight per item
      */
-    public Item(int maxStackSize, String name, double weightInKg){
-        this.maxStackSize = maxStackSize;
+    public Item(String name, double weightInKg){
         this.name = name;
         this.weightInKg = weightInKg;
     }
