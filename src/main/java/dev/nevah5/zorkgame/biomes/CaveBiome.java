@@ -4,8 +4,8 @@ package dev.nevah5.zorkgame.biomes;
  * Cave biome.
  * @author Nevah5
  */
-public class Cave extends Biome{
-    public Cave(){
+public class CaveBiome extends Biome{
+    public CaveBiome(){
         super("⛰");
     }
 

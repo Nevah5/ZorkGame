@@ -4,8 +4,8 @@ package dev.nevah5.zorkgame.biomes;
  * @author Nevah5
  * House biome. This is the last biome the player has to discover/use.
  */
-public class House extends Biome{
-    public House(){
+public class HouseBiome extends Biome{
+    public HouseBiome(){
         super("🏠");
     }
 

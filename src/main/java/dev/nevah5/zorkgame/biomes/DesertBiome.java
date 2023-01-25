@@ -4,8 +4,8 @@ package dev.nevah5.zorkgame.biomes;
  * Desert biome.
  * @author Nevah5
  */
-public class Desert extends Biome{
-    public Desert(){
+public class DesertBiome extends Biome{
+    public DesertBiome(){
         super("🏜️");
     }
 

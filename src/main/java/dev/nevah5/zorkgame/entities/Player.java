@@ -1,7 +1,7 @@
 package dev.nevah5.zorkgame.entities;
 
 import dev.nevah5.zorkgame.Game;
-import dev.nevah5.zorkgame.biomes.House;
+import dev.nevah5.zorkgame.biomes.HouseBiome;
 import dev.nevah5.zorkgame.misc.Map;
 import dev.nevah5.zorkgame.biomes.Biome;
 import dev.nevah5.zorkgame.enums.Direction;
@@ -59,7 +59,7 @@ public class Player {
         if(!currentBiome.getHasVisited()) System.out.printf("%s%n", map.getCurrentBiome().getEnterBiomeStory());
         currentBiome.setHasVisited(true);
 
-        if((currentBiome instanceof House) && playerInventory.hasKey()){
+        if((currentBiome instanceof HouseBiome) && playerInventory.hasKey()){
             System.out.println("It looks like you have a key that fits the door.");
             System.out.println("You open the door.");
             System.out.println("\n");

@@ -4,8 +4,8 @@ package dev.nevah5.zorkgame.biomes;
  * Forest biome.
  * @author Nevah5
  */
-public class Forest extends Biome{
-    public Forest(){
+public class ForestBiome extends Biome{
+    public ForestBiome(){
         super("🌳");
     }
 

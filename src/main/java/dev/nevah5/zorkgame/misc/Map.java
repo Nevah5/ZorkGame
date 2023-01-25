@@ -32,24 +32,24 @@ public class Map {
         for(int i = 1; i <= 40; i++) {
             int r = random.nextInt(4);
             switch (r) {
-                case 0 -> biomes.add(new Cave());
-                case 1 -> biomes.add(new Desert());
-                case 2 -> biomes.add(new Forest());
-                case 3 -> biomes.add(new Jungle());
+                case 0 -> biomes.add(new CaveBiome());
+                case 1 -> biomes.add(new DesertBiome());
+                case 2 -> biomes.add(new ForestBiome());
+                case 3 -> biomes.add(new JungleBiome());
             }
         }
         //generate house biome
         int x = random.nextInt(8);
         int y = random.nextInt(5);
         if(x == 0) x = 1;
-        biomes.set(x*y+x, new House());
+        biomes.set(x*y+x, new HouseBiome());
 
         //generate key item
         x = random.nextInt(8);
         y = random.nextInt(5);
         if(x == 0) x = 1;
         Biome biome = biomes.get(x*y+x);
-        while(!(biome instanceof Jungle)){
+        while(!(biome instanceof JungleBiome)){
             x = random.nextInt(8);
             y = random.nextInt(5);
             if(x == 0) x = 1;
@@ -79,8 +79,8 @@ public class Map {
                 if(x == 8) System.out.print("\n");
             }
         }
-        System.out.printf("%s%n%s%n%s%n%s%n%s%n", new Cave().getBiomeDesc(), new Desert().getBiomeDesc(),
-                new Forest().getBiomeDesc(), new House().getBiomeDesc(), new Jungle().getBiomeDesc());
+        System.out.printf("%s%n%s%n%s%n%s%n%s%n", new CaveBiome().getBiomeDesc(), new DesertBiome().getBiomeDesc(),
+                new ForestBiome().getBiomeDesc(), new HouseBiome().getBiomeDesc(), new JungleBiome().getBiomeDesc());
     }
 
     /**
