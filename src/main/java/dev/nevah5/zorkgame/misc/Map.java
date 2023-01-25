@@ -1,12 +1,15 @@
 package dev.nevah5.zorkgame.misc;
 
 import dev.nevah5.zorkgame.biomes.*;
+import dev.nevah5.zorkgame.misc.items.BoneItem;
 import dev.nevah5.zorkgame.misc.items.KeyItem;
+import dev.nevah5.zorkgame.misc.items.ScrewItem;
 import dev.nevah5.zorkgame.tools.PlayerLocation;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.function.Supplier;
 
 /**
  * Creates a new map for the player.
@@ -53,6 +56,9 @@ public class Map {
             biome = biomes.get(x*y+x);
         }
         biome.getItems().add(new KeyItem());
+
+        this.spawnItemsInBiome(3, BoneItem::new);
+        this.spawnItemsInBiome(14, ScrewItem::new);
     }
 
     /**
@@ -90,5 +96,21 @@ public class Map {
      */
     public Biome getCurrentBiome(){
         return this.biomes.get(playerLocation.getListIndex());
+    }
+
+    /**
+     *
+     * @param amountBiomes in how many biomes the item should be spawned
+     * @param itemSupplier the class of the item
+     */
+    private void spawnItemsInBiome(int amountBiomes, Supplier<Item> itemSupplier){
+        Random random = new Random();
+        for(int i = 0; i < amountBiomes; i++){
+            int x = random.nextInt(8);
+            int y = random.nextInt(5);
+            if(x == 0) x = 1;
+            Biome biome = biomes.get(x*y+x);
+            biome.getItems().add(itemSupplier.get());
+        }
     }
 }
