@@ -30,8 +30,9 @@ public class PlayerInventory {
      */
     public void printInventory(){
         System.out.printf("Yᴏᴜʀ Iɴᴠᴇɴᴛᴏʀʏ%nWeight: %s%n", weightInKg);
-        for (Item i : items){
-            System.out.printf("%s - %skg%n", i.getName(), i.getWeightInKg());
+        for(int i = 0; i < items.size(); i++){
+            Item item = items.get(i);
+            System.out.printf("%s - 1x %s [%skg]%n", i, item.getName(), item.getWeightInKg());
         }
     }
 }
