@@ -1,6 +1,7 @@
 package dev.nevah5.zorkgame.misc;
 
 import dev.nevah5.zorkgame.biomes.*;
+import dev.nevah5.zorkgame.misc.items.KeyItem;
 import dev.nevah5.zorkgame.tools.PlayerLocation;
 
 import java.util.ArrayList;
@@ -39,8 +40,24 @@ public class Map {
         int y = random.nextInt(5);
         if(x == 0) x = 1;
         biomes.set(x*y+x, new House());
+
+        //generate key item
+        x = random.nextInt(8);
+        y = random.nextInt(5);
+        if(x == 0) x = 1;
+        Biome biome = biomes.get(x*y+x);
+        while(!(biome instanceof Jungle)){
+            x = random.nextInt(8);
+            y = random.nextInt(5);
+            if(x == 0) x = 1;
+            biome = biomes.get(x*y+x);
+        }
+        biome.getItems().add(new KeyItem());
     }
 
+    /**
+     * Prints out the map into the console
+     */
     public void printMap(){
         int playerPos = playerLocation.getListIndex();
         System.out.printf("You are currently in: %s%n", biomes.get(playerPos).getBiomeDesc());
@@ -60,10 +77,17 @@ public class Map {
                 new Forest().getBiomeDesc(), new House().getBiomeDesc(), new Jungle().getBiomeDesc());
     }
 
+    /**
+     * Updates the biome and sets visited to true
+     */
     public void updatePosition(){
         this.biomes.get(playerLocation.getListIndex()).setHasVisited(true);
     }
 
+    /**
+     * Returns the current biome the player is currently in
+     * @return the biome the player is currently in
+     */
     public Biome getCurrentBiome(){
         return this.biomes.get(playerLocation.getListIndex());
     }

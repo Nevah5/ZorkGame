@@ -7,6 +7,7 @@ public class KeyItem extends Item {
         super(1, "Key", 0.02);
     }
 
+    @Override
     public void inspect(){
         System.out.println("This key can be used to open something. Who would've thought.");
     }

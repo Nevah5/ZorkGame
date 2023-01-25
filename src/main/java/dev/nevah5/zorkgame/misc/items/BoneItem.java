@@ -7,6 +7,7 @@ public class BoneItem extends Item {
         super(2, "Bone", 2.4);
     }
 
+    @Override
     public void inspect(){
         System.out.println("Can be used for fighting.");
     }

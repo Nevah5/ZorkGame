@@ -5,6 +5,7 @@ import dev.nevah5.zorkgame.misc.Item;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -14,7 +15,8 @@ import java.util.List;
  */
 public class Biome {
     private List<Monster> monsters;
-    private List<Item> items;
+    @Getter
+    private List<Item> items = new ArrayList<>();
     @Getter
     private String icon;
     @Getter
