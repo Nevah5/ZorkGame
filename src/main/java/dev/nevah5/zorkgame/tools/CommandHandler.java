@@ -1,10 +1,7 @@
 package dev.nevah5.zorkgame.tools;
 
 import dev.nevah5.zorkgame.Game;
-import dev.nevah5.zorkgame.commands.HelpCommand;
-import dev.nevah5.zorkgame.commands.MapCommand;
-import dev.nevah5.zorkgame.commands.MoveCommand;
-import dev.nevah5.zorkgame.commands.SearchCommand;
+import dev.nevah5.zorkgame.commands.*;
 import dev.nevah5.zorkgame.exceptions.CommandNotFoundException;
 import lombok.Getter;
 
@@ -34,6 +31,7 @@ public class CommandHandler {
             case "move n", "move e", "move s", "move w" ->
                 new MoveCommand(game.getPlayer(), game.getMap(), command.split(" ")[1]);
             case "search" -> new SearchCommand(game.getPlayer(), game.getMap());
+            case "inventory" -> new InventoryCommand(game.getPlayer());
             default -> throw new CommandNotFoundException(String.format("The command '%s' was not found!",
                     command));
         }
