@@ -1,5 +1,7 @@
 package dev.nevah5.zorkgame.entities;
 
+import dev.nevah5.zorkgame.Game;
+import dev.nevah5.zorkgame.biomes.House;
 import dev.nevah5.zorkgame.misc.Map;
 import dev.nevah5.zorkgame.biomes.Biome;
 import dev.nevah5.zorkgame.enums.Direction;
@@ -14,6 +16,7 @@ import lombok.Getter;
  * @author Nevah5
  */
 public class Player {
+    private Game game;
     @Getter
     private final String playerName;
     @Getter
@@ -21,8 +24,9 @@ public class Player {
     @Getter
     private final PlayerInventory playerInventory = new PlayerInventory();
 
-    public Player(String playerName){
+    public Player(String playerName, Game game){
         this.playerName = playerName;
+        this.game = game;
     }
 
     /**
@@ -54,5 +58,13 @@ public class Player {
         Biome currentBiome = map.getCurrentBiome();
         if(!currentBiome.getHasVisited()) System.out.printf("%s%n", map.getCurrentBiome().getEnterBiomeStory());
         currentBiome.setHasVisited(true);
+
+        if((currentBiome instanceof House) && playerInventory.hasKey()){
+            System.out.println("It looks like you have a key that fits the door.");
+            System.out.println("You open the door.");
+            System.out.println("\n");
+            System.out.println("Congrats! You won!");
+            game.setGameRunning(false);
+        }
     }
 }

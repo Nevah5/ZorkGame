@@ -11,8 +11,6 @@ import lombok.Getter;
  */
 public class CommandHandler {
     private Game game;
-    @Getter
-    private boolean gameRunning = true;
     public CommandHandler(Game game){
         this.game = game;
     }
@@ -25,7 +23,7 @@ public class CommandHandler {
     public void runCommand(String command) throws Throwable {
         switch (command){
             case "help", "h", "?" -> new HelpCommand();
-            case "q", "quit", "end", "stop" -> this.gameRunning = false;
+            case "q", "quit", "end", "stop" -> game.setGameRunning(false);
             case "map" -> new MapCommand(this.game.getMap());
             case "move" -> new MoveCommand(game.getPlayer(), game.getMap());
             case "move n", "move e", "move s", "move w" ->

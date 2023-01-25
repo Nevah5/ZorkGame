@@ -4,6 +4,7 @@ import dev.nevah5.zorkgame.entities.Player;
 import dev.nevah5.zorkgame.misc.Map;
 import dev.nevah5.zorkgame.tools.CommandHandler;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
@@ -22,6 +23,9 @@ public class Game {
     private Map map;
     @Getter
     private Player player;
+    @Getter
+    @Setter
+    private boolean isGameRunning = true;
     public Game() throws InterruptedException {
         Scanner scanner = new Scanner(System.in);
 
@@ -43,7 +47,7 @@ public class Game {
             System.out.print(".");
         }
 
-        this.player = new Player("Player");
+        this.player = new Player("Player", this);
 
         this.map = new Map(player.getPlayerLocation());
 
@@ -58,7 +62,7 @@ public class Game {
             }catch (Throwable throwable){
                 System.out.println("\u001B[31m"+throwable.getMessage());
             }
-        } while(commandHandler.isGameRunning());
+        } while(this.isGameRunning);
 
         System.out.println("\u001B[35mThanks for playing!");
 
