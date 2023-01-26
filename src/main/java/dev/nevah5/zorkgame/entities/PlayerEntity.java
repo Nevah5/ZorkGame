@@ -11,6 +11,7 @@ import dev.nevah5.zorkgame.tools.PlayerLocation;
 import lombok.Getter;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * The player class. Stores the name of the player
@@ -73,7 +74,8 @@ public class PlayerEntity {
             List<MonsterEntity> monsters = currentBiome.getMonsters();
             do {
                 MonsterEntity monsterToFight = monsters.get(monsters.size() - 1);
-                monsterToFight.fightMonster();
+                monsterToFight.fightMonster(game.getScanner());
+                TimeUnit.SECONDS.sleep(5);
                 if(!monsterToFight.isDefeated()) {
                     game.setGameRunning(false);
                     return;
