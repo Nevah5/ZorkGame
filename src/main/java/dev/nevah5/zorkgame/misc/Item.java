@@ -14,7 +14,6 @@ public class Item {
 
     /**
      * Creates a new item.
-     * @param maxStackSize how many can be stacked at max
      * @param name the name of the item
      * @param weightInKg the weight per item
      */

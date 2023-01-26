@@ -1,6 +1,6 @@
 package dev.nevah5.zorkgame.biomes;
 
-import dev.nevah5.zorkgame.entities.Monster;
+import dev.nevah5.zorkgame.entities.MonsterEntity;
 import dev.nevah5.zorkgame.misc.Item;
 import lombok.Getter;
 import lombok.Setter;
@@ -14,7 +14,7 @@ import java.util.List;
  * @author Nevah5
  */
 public class Biome {
-    private List<Monster> monsters;
+    private List<MonsterEntity> monsters;
     @Getter
     private List<Item> items = new ArrayList<>();
     @Getter

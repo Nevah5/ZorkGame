@@ -1,10 +1,9 @@
 package dev.nevah5.zorkgame.commands;
 
 import dev.nevah5.zorkgame.biomes.Biome;
-import dev.nevah5.zorkgame.entities.Player;
+import dev.nevah5.zorkgame.entities.PlayerEntity;
 import dev.nevah5.zorkgame.misc.Item;
 import dev.nevah5.zorkgame.misc.Map;
-import dev.nevah5.zorkgame.misc.items.ScrewItem;
 
 import java.util.List;
 
@@ -18,7 +17,7 @@ public class SearchCommand {
      * @param player to store the items found in the player's inventory
      * @param map the map to get the biome and check if there are items
      */
-    public SearchCommand(Player player, Map map){
+    public SearchCommand(PlayerEntity player, Map map){
         Biome biome = map.getCurrentBiome();
         List<Item> items = biome.getItems();
         if(items.size() == 0) {

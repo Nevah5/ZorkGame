@@ -1,7 +1,7 @@
 package dev.nevah5.zorkgame.commands;
 
 import dev.nevah5.zorkgame.misc.Map;
-import dev.nevah5.zorkgame.entities.Player;
+import dev.nevah5.zorkgame.entities.PlayerEntity;
 import dev.nevah5.zorkgame.enums.Direction;
 import dev.nevah5.zorkgame.exceptions.InvalidCommandSyntaxException;
 import dev.nevah5.zorkgame.exceptions.InvalidPlayerMoveException;
@@ -18,7 +18,7 @@ public class MoveCommand {
      * @param player the player
      * @param map the map from the game
      */
-    public MoveCommand(Player player, Map map){
+    public MoveCommand(PlayerEntity player, Map map){
         Scanner scanner = new Scanner(System.in);
         System.out.println("In which direction do you want to move?");
         System.out.println("n(orth)/e(ast)/s(outh)/w(est)");
@@ -47,7 +47,7 @@ public class MoveCommand {
      * @param player the player
      * @param map the map from the game
      */
-    public MoveCommand(Player player, Map map, String param1) {
+    public MoveCommand(PlayerEntity player, Map map, String param1) {
         try{
             switch (param1){
                 case "n" -> player.move(Direction.NORTH, map);

@@ -15,7 +15,7 @@ import lombok.Getter;
  * and the location.
  * @author Nevah5
  */
-public class Player {
+public class PlayerEntity {
     private Game game;
     @Getter
     private final String playerName;
@@ -24,7 +24,7 @@ public class Player {
     @Getter
     private final PlayerInventory playerInventory = new PlayerInventory();
 
-    public Player(String playerName, Game game){
+    public PlayerEntity(String playerName, Game game){
         this.playerName = playerName;
         this.game = game;
     }

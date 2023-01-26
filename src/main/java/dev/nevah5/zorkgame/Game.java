@@ -1,6 +1,6 @@
 package dev.nevah5.zorkgame;
 
-import dev.nevah5.zorkgame.entities.Player;
+import dev.nevah5.zorkgame.entities.PlayerEntity;
 import dev.nevah5.zorkgame.misc.Map;
 import dev.nevah5.zorkgame.tools.CommandHandler;
 import lombok.Getter;
@@ -22,7 +22,7 @@ public class Game {
     @Getter
     private Map map;
     @Getter
-    private Player player;
+    private PlayerEntity player;
     @Getter
     @Setter
     private boolean isGameRunning = true;
@@ -47,7 +47,7 @@ public class Game {
             System.out.print(".");
         }
 
-        this.player = new Player("Player", this);
+        this.player = new PlayerEntity("Player", this);
 
         this.map = new Map(player.getPlayerLocation());
 
