@@ -15,6 +15,11 @@ public class HelpCommand {
         System.out.println("move (n(orth)/e(ast)/s(outh)/w(est)) - moves the player into the desired direction");
         System.out.println("search - search in the player's location\n");
         System.out.println("- Iɴᴠᴇɴᴛᴏʀʏ -");
-        System.out.println("inventory - lists the player's inventory");
+        System.out.println("inventory - lists the player's inventory\n");
+        System.out.println("- Oᴛʜᴇʀ -");
+        System.out.println("q - quits the game");
+        System.out.println("quit - quits the game");
+        System.out.println("end - quits the game");
+        System.out.println("stop - quits the game");
     }
 }
