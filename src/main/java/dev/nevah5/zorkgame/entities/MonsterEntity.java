@@ -1,5 +1,6 @@
 package dev.nevah5.zorkgame.entities;
 
+import dev.nevah5.zorkgame.exceptions.InvalidCommandSyntaxException;
 import lombok.Getter;
 
 import java.util.Random;
@@ -27,10 +28,19 @@ public class MonsterEntity {
         System.out.println("4 - Back-flip");
         Random random = new Random();
         int rng = random.nextInt(4);
-        System.out.print("Selection: ");
-        int selected = scanner.nextInt();
+        String selected = "";
+        do{
+            try{
+                System.out.print("Selection: ");
+                selected = scanner.nextLine();
+                if(!selected.equals("1") && !selected.equals("2") && !selected.equals("3") && !selected.equals("4"))
+                    throw new InvalidCommandSyntaxException("1, 2, 3 or 4");
+            }catch (InvalidCommandSyntaxException e){
+                System.out.println(e.getMessage());
+            }
+        }while(!selected.equals("1") && !selected.equals("2") && !selected.equals("3") && !selected.equals("4"));
         if(rng != 3) isDefeated = true;
-        if(selected == 1){
+        if(selected.equals("1")){
             System.out.println("You selected 'Banana'.");
             switch (rng){
                 case 0 -> System.out.printf("You quickly take out a banana from your backpack. After eating it " +
@@ -45,7 +55,7 @@ public class MonsterEntity {
                         "to the %s and offer the banana to it. You were unlucky though and the %s doesn't like " +
                         "exotic fruits. It hits you in the head and you die.%n", monsterName, monsterName);
             }
-        } else if (selected == 2){
+        } else if (selected.equals("2")){
             System.out.println("You selected 'Punch'.");
             switch (rng){
                 case 0 -> System.out.printf("Without hesitating you punch the %s. I think it hurt because it " +
@@ -57,7 +67,7 @@ public class MonsterEntity {
                 case 3 -> System.out.printf("You tried to act quickly but the %s was quicker and defeated you.%n",
                         monsterName);
             }
-        } else if (selected == 3){
+        } else if (selected.equals("3")){
             System.out.println("You selected 'Kick'.");
             switch (rng){
                 case 0 -> System.out.printf("You kick the %s and win the fight.%n", monsterName);
@@ -70,7 +80,7 @@ public class MonsterEntity {
                                 "slipped and fell down onto your head.%n",
                         monsterName);
             }
-        } else if (selected == 4){
+        } else if (selected.equals("4")){
             isDefeated = false;
             System.out.println("You selected 'back-flip'.");
             System.out.printf("You tried to back flip and impress the %s, but you failed and died because you hit " +
