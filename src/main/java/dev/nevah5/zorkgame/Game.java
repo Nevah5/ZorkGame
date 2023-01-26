@@ -26,9 +26,9 @@ public class Game {
     @Getter
     @Setter
     private boolean isGameRunning = true;
+    @Getter
+    private final Scanner scanner = new Scanner(System.in);
     public Game() throws InterruptedException {
-        Scanner scanner = new Scanner(System.in);
-
         System.out.println("""
                 \u001B[35mWELCOME TO
                 ███████╗░█████╗░██████╗░██╗░░██╗
