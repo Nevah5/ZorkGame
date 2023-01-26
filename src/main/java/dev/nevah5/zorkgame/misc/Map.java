@@ -1,6 +1,9 @@
 package dev.nevah5.zorkgame.misc;
 
 import dev.nevah5.zorkgame.biomes.*;
+import dev.nevah5.zorkgame.entities.MonsterEntity;
+import dev.nevah5.zorkgame.entities.SkeletonEntity;
+import dev.nevah5.zorkgame.entities.ZombieEntity;
 import dev.nevah5.zorkgame.misc.items.BoneItem;
 import dev.nevah5.zorkgame.misc.items.KeyItem;
 import dev.nevah5.zorkgame.misc.items.ScrewItem;
@@ -59,6 +62,8 @@ public class Map {
 
         this.spawnItemsInBiome(3, BoneItem::new);
         this.spawnItemsInBiome(14, ScrewItem::new);
+        this.spawnMonstersInBiome(2, SkeletonEntity::new);
+        this.spawnMonstersInBiome(3, ZombieEntity::new);
     }
 
     /**
@@ -111,6 +116,17 @@ public class Map {
             if(x == 0) x = 1;
             Biome biome = biomes.get(x*y+x);
             biome.getItems().add(itemSupplier.get());
+        }
+    }
+
+    private void spawnMonstersInBiome(int amountBiomes, Supplier<MonsterEntity> monsterEntitySupplier){
+        Random random = new Random();
+        for(int i = 0; i < amountBiomes; i++){
+            int x = random.nextInt(8);
+            int y = random.nextInt(5);
+            if(x == 0) x = 1;
+            Biome biome = biomes.get(x*y+x);
+            biome.getMonsters().add(monsterEntitySupplier.get());
         }
     }
 }
