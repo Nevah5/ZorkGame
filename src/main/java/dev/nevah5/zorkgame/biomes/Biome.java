@@ -14,6 +14,7 @@ import java.util.List;
  * @author Nevah5
  */
 public class Biome {
+    @Getter
     private List<MonsterEntity> monsters;
     @Getter
     private List<Item> items = new ArrayList<>();
@@ -55,4 +56,13 @@ public class Biome {
      * @return Story when the player enters a biome for the first time
      */
     public String getEnterBiomeStory(){ return "You entered something unknown."; }
+
+
+    /**
+     * Returns boolean if biome has monsters
+     * @return boolean if biome has monsters
+     */
+    public boolean hasMonsters(){
+        return monsters.size() >= 1;
+    }
 }
