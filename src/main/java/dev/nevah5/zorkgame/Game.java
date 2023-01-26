@@ -20,9 +20,9 @@ import java.util.concurrent.TimeUnit;
  */
 public class Game {
     @Getter
-    private Map map;
+    private final Map map;
     @Getter
-    private PlayerEntity player;
+    private final PlayerEntity player;
     @Getter
     @Setter
     private boolean isGameRunning = true;

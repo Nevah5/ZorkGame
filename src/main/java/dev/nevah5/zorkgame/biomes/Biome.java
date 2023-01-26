@@ -15,11 +15,11 @@ import java.util.List;
  */
 public class Biome {
     @Getter
-    private List<MonsterEntity> monsters;
+    private final List<MonsterEntity> monsters = new ArrayList<>();
     @Getter
-    private List<Item> items = new ArrayList<>();
+    private final List<Item> items = new ArrayList<>();
     @Getter
-    private String icon;
+    private final String icon;
     @Getter
     @Setter
     private Boolean hasVisited = false;

@@ -10,13 +10,15 @@ import dev.nevah5.zorkgame.misc.PlayerInventory;
 import dev.nevah5.zorkgame.tools.PlayerLocation;
 import lombok.Getter;
 
+import java.util.List;
+
 /**
  * The player class. Stores the name of the player
  * and the location.
  * @author Nevah5
  */
 public class PlayerEntity {
-    private Game game;
+    private final Game game;
     @Getter
     private final String playerName;
     @Getter
@@ -65,6 +67,19 @@ public class PlayerEntity {
             System.out.println("\n");
             System.out.println("Congrats! You won!");
             game.setGameRunning(false);
+        }
+
+        if(currentBiome.hasMonsters()){
+            List<MonsterEntity> monsters = currentBiome.getMonsters();
+            do {
+                MonsterEntity monsterToFight = monsters.get(monsters.size() - 1);
+                monsterToFight.fightMonster();
+                if(!monsterToFight.isDefeated()) {
+                    game.setGameRunning(false);
+                    return;
+                }
+                monsters.remove(monsterToFight);
+            } while(monsters.size() >= 1);
         }
     }
 }
