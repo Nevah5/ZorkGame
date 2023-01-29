@@ -21,12 +21,12 @@ import java.util.function.Supplier;
  * @author Nevah5
  */
 public class Map {
-    PlayerLocation playerLocation;
+    private final PlayerLocation playerLocation;
     /**
      * This stores all the biomes. It's the map.
      * Index goes up to 39.
      */
-    List<Biome> biomes = new ArrayList<>();
+    private final List<Biome> biomes = new ArrayList<>();
     public Map(PlayerLocation playerLocation){
         this.playerLocation = playerLocation;
 
